@@ -3,8 +3,8 @@ Library::import('{{fullyQualifiedModel}}');
 Library::import('recess.framework.forms.ModelForm');
 
 /**
- * !View Prefix: {{viewsPrefix}}/
- * !RoutesPrefix {{routesPrefix}}/
+ * !RespondsWith Layouts
+ * !Prefix {{routesPrefix}}/
  */
 class {{modelName}}Controller extends Controller {
 	

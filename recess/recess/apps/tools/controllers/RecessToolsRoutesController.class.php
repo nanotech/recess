@@ -2,8 +2,8 @@
 Library::import('recess.framework.controllers.Controller');
 
 /**
- * !View Recess, Prefix: routes/
- * !RoutesPrefix routes/
+ * !RespondsWith Layouts, Json
+ * !Prefix routes/
  */
 class RecessToolsRoutesController extends Controller {
 	
