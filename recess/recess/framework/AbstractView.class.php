@@ -14,7 +14,7 @@ Library::import('recess.lang.Object');
 abstract class AbstractView extends Object {
 	protected $response;
 	
-	public abstract function canRespondsWith(Response $response);
+	public abstract function canRespondWith(Response $response);
 	
 	/**
 	 * The entry point from the Recess with a Response to be rendered.
@@ -75,6 +75,9 @@ abstract class AbstractView extends Object {
 	protected final function sendHeadersFor(Response $response) {
 		
 		header('HTTP/1.1 ' . ResponseCodes::getMessageForCode($response->code));
+		
+		$format = $response->request->accepts->format();
+		header('Content-Type: ' . MimeTypes::preferredMimeTypeFor($format));
 		
 		foreach($response->headers as $header) {
 			header($header);
