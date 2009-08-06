@@ -2,7 +2,7 @@
 Library::import('recess.framework.AbstractView');
 
 class NativeView extends AbstractView {
-	protected function getTemplateFor($response) {
+	 function getTemplateFor($response) {
 		// TODO: Cache in production mode
 		$format = $response->request->accepts->format();
 		
