@@ -121,6 +121,9 @@ class PdoDataSet implements Iterator, Countable, ArrayAccess, ISqlSelectOptions,
 		return iterator_count($this); 
 	}
 	
+	public function exists() {
+		return (bool)iterator_count($this);
+	}
 	
 	/*
 	 * The following methods are in accordance with the Iterator interface
@@ -347,5 +350,11 @@ class PdoDataSet implements Iterator, Countable, ArrayAccess, ISqlSelectOptions,
 	 * @return PdoDataSet
 	 */	
 	function groupBy($clause) { $copy = clone $this; $copy->sqlBuilder->groupBy($clause); return $copy; }
+	
+	/**
+	 * @see SqlBuilder::in
+	 * @return PdoDataSet
+	 */		
+	function in($lhs, $rhs) { $copy = clone $this; $copy->sqlBuilder->in($lhs,$rhs); return $copy; }
 }
 ?>
